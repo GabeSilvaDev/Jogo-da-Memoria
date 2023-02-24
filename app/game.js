@@ -28,7 +28,7 @@ export const Game = {
         canSelect = true;
         selectedCards = [];
         cardList = startLogoList(logoList);
-        socre = 0;
+        score = 0;
         TemplateService.setCardList(cardList.map(card => card.name));
         TemplateService.hideResetButton();
     },

@@ -11,7 +11,7 @@ const logoList = [
 
 ImageService.loadImageAll([
     './img/treinaweb.svg',
-    logoList.map(logo => `./img/${logo}.svg`)
+    ...logoList.map(logo => `./img/${logo}.svg`)
 ]).then(() => {
     listElement.addEventListener('click', onCardClick);
     resetButton.addEventListener('click', () => Game.start(logoList));
@@ -19,9 +19,9 @@ ImageService.loadImageAll([
 })
 
 function onCardClick({target}) {
-    const listItemElement = target.closes('.flipper-contaainer');
+    const listItemElement = target.closest('.flipper-container');
     if(listItemElement){
-        const index = [...listElement.children].indexOf(listElement);
+        const index = [...listElement.children].indexOf(listItemElement);
         Game.selectedCard(index);
     }
 }
